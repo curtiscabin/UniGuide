@@ -88,6 +88,16 @@
             user-select: none;
         }
 
+         /* НОВЫЙ КЛАСС ДЛЯ ТЕКСТА */
+        .building-text {
+            color: #c1c1c1;
+            font-weight: bold;
+            font-size: 14px;
+            user-select: none;
+            /* Позиционируем текст внутри корпуса */
+            position: absolute;
+        }
+
         /* Когда наводишь мышку на корпус */
         .building:hover {
             transform: scale(1.05);
@@ -147,10 +157,22 @@
                 width: {{ building.width }};
                 height: {{ building.height }};
                 {% if building.clip_path %}clip-path: {{ building.clip_path }};{% endif %}
+                {% if building.border_radius %}border-radius: {{ building.border_radius }};{% endif %}
             "
             title="Корпус {{ building.number }}"
         >
+
+
+            <div
+            class="building-text"
+            style="
+                {% if building.text_padding_top %}top: {{ building.text_padding_top }};{% endif %}
+                {% if building.text_padding_left %}left: {{ building.text_padding_left }};{% endif %}
+            "
+        >
+
             {{ building.number }}
+        </div>
         </div>
         {% endfor %}
     </div>
