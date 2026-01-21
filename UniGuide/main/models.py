@@ -61,6 +61,8 @@ class Building(models.Model):
         help_text="Например: 15px"
     )
 
+    floors_count = models.IntegerField(default=5, verbose_name="Количество этажей")
+
     class Meta:
         verbose_name = "Корпус"
         verbose_name_plural = "Корпуса"

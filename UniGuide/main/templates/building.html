@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+{% load dict_filters %}
+
+{% block map %}
+<div id="building-map" style="position: relative; width: 90%; max-width: 1000px; margin: auto;">
+    <h2>
+    Этаж
+    <span id="current-floor">1</span>
+</h2>
+
+
+    <div class="svg-container" style="width: 100%; height: auto;">
+        {% for floor in floors %}
+            {% with template_name=floor_templates|dict_get:floor %}
+                {% if template_name %}
+                    <div id="floor-{{ floor }}" class="floor" style="{% if floor != current_floor %}display: none;{% endif %}">
+                        {% include template_name %}
+                    </div>
+                {% else %}
+                    <p>Шаблон для этажа {{ floor }} не найден</p>
+                {% endif %}
+            {% endwith %}
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
+
+{% block sidebar %}
+<div style="display: flex; flex-direction: column-reverse; gap: 5px; position: fixed; right: 20px; top: 100px;">
+    {% for floor in floors %}
+        <button class="floor-btn" data-floor="{{ floor }}">{{ floor }}</button>
+    {% endfor %}
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+    const buttons = document.querySelectorAll('.floor-btn');
+    const floors = document.querySelectorAll('.floor');
+    const currentFloorLabel = document.getElementById('current-floor');
+
+    buttons.forEach(btn => {
+        btn.addEventListener('click', () => {
+            const floorNum = btn.dataset.floor;
+
+            // Меняем заголовок
+            currentFloorLabel.textContent = floorNum;
+
+            // Показываем нужный этаж
+            floors.forEach(f => {
+                f.style.display = (f.id === 'floor-' + floorNum) ? 'block' : 'none';
+            });
+        });
+    });
+});
+</script>
+
+{% endblock %}

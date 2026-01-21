@@ -1,6 +1,25 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from main.models import Building
 
+FLOOR_TEMPLATES = {
+    1: {1: "buildings/floors/building_1_floor_1.html",
+        2: "buildings/floors/building_1_floor_2.html",
+        3: "buildings/floors/building_1_floor_3.html",
+        4: "buildings/floors/building_1_floor_4.html",
+        5: "buildings/floors/building_1_floor_5.html"},
+    2: {1: "buildings/floors/building_2_floor_1.html",
+        2: "buildings/floors/building_2_floor_2.html",
+        3: "buildings/floors/building_2_floor_3.html",
+        4: "buildings/floors/building_2_floor_4.html",
+        5: "buildings/floors/building_2_floor_5.html",
+        6: "buildings/floors/building_2_floor_6.html"},
+    6: {1: "buildings/floors/building_6_floor_1.html",
+        2: "buildings/floors/building_6_floor_2.html",
+        3: "buildings/floors/building_6_floor_3.html",
+        4: "buildings/floors/building_6_floor_4.html",
+        5: "buildings/floors/building_6_floor_5.html"},
+    # ... остальные корпуса
+}
 
 def index(request):
     """
@@ -24,3 +43,18 @@ def index(request):
     # Рендерим шаблон и передаем контекст
     return render(request, 'index.html', context)
 
+def building_detail(request, number):
+    building = get_object_or_404(Building, number=number)
+
+    floors = list(range(1, building.floors_count + 1))
+    floor_templates = FLOOR_TEMPLATES.get(building.number, {})
+
+    context = {
+        'building': building,
+        'floors': floors,
+        'floor_templates': floor_templates,
+        'current_floor': 1,
+        'page_title': f'Корпус {building.number}',
+    }
+
+    return render(request, 'building.html', context)
