@@ -1,57 +1,38 @@
-{% extends "base.html" %}
-{% load dict_filters %}
+{% extends 'base.html' %}
 
-{% block map %}
-<div id="building-map" style="position: relative; width: 90%; max-width: 1000px; margin: auto;">
-    <h2>
-    Этаж
-    <span id="current-floor">1</span>
-</h2>
+{% block title %}Корпус {{ building.number }}{% endblock %}
 
+{% block content %}
 
-    <div class="svg-container" style="width: 100%; height: auto;">
+<div style="display: flex; width: 100%;">
+
+    <!-- БОКОВОЕ МЕНЮ ЭТАЖЕЙ -->
+    <div style="
+        width: 120px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        margin-right: 20px;
+    ">
         {% for floor in floors %}
-            {% with template_name=floor_templates|dict_get:floor %}
-                {% if template_name %}
-                    <div id="floor-{{ floor }}" class="floor" style="{% if floor != current_floor %}display: none;{% endif %}">
-                        {% include template_name %}
-                    </div>
-                {% else %}
-                    <p>Шаблон для этажа {{ floor }} не найден</p>
-                {% endif %}
-            {% endwith %}
+            <a href="?floor={{ floor }}" style="
+                padding: 10px;
+                text-align: center;
+                background: {% if floor == current_floor %}#4d19cc{% else %}#333{% endif %};
+                color: white;
+                text-decoration: none;
+                border-radius: 8px;
+            ">
+                {{ floor }} этаж
+            </a>
         {% endfor %}
     </div>
+
+    <!-- САМ ЭТАЖ -->
+    <div style="flex: 1;">
+        {% include current_template %}
+    </div>
+
 </div>
-{% endblock %}
-
-{% block sidebar %}
-<div style="display: flex; flex-direction: column-reverse; gap: 5px; position: fixed; right: 20px; top: 100px;">
-    {% for floor in floors %}
-        <button class="floor-btn" data-floor="{{ floor }}">{{ floor }}</button>
-    {% endfor %}
-</div>
-
-<script>
-document.addEventListener("DOMContentLoaded", () => {
-    const buttons = document.querySelectorAll('.floor-btn');
-    const floors = document.querySelectorAll('.floor');
-    const currentFloorLabel = document.getElementById('current-floor');
-
-    buttons.forEach(btn => {
-        btn.addEventListener('click', () => {
-            const floorNum = btn.dataset.floor;
-
-            // Меняем заголовок
-            currentFloorLabel.textContent = floorNum;
-
-            // Показываем нужный этаж
-            floors.forEach(f => {
-                f.style.display = (f.id === 'floor-' + floorNum) ? 'block' : 'none';
-            });
-        });
-    });
-});
-</script>
 
 {% endblock %}

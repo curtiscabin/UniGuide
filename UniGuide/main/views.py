@@ -46,15 +46,19 @@ def index(request):
 def building_detail(request, number):
     building = get_object_or_404(Building, number=number)
 
+    floor = int(request.GET.get('floor', 1))  # 👈 вот это важно
+
     floors = list(range(1, building.floors_count + 1))
     floor_templates = FLOOR_TEMPLATES.get(building.number, {})
+
+    current_template = floor_templates.get(floor)
 
     context = {
         'building': building,
         'floors': floors,
-        'floor_templates': floor_templates,
-        'current_floor': 1,
-        'page_title': f'Корпус {building.number}',
+        'current_floor': floor,
+        'current_template': current_template,
     }
 
     return render(request, 'building.html', context)
+
