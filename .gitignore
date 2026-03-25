@@ -1,0 +1,40 @@
+# Python
+*.pyc
+__pycache__/
+*.py[cod]
+
+# База данных
+*.sqlite3
+db.sqlite3
+
+# Виртуальное окружение
+venv/
+env/
+.env/
+.venv/
+
+# Переменные окружения
+.env
+
+# Статика и медиа
+staticfiles/
+static/
+media/
+
+# Логи
+*.log
+logs/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+
+# Тесты
+.coverage
+htmlcov/
+.pytest_cache/
+
+# Системные
+.DS_Store
+Thumbs.db
