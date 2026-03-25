@@ -1,7 +1,6 @@
 {% block extra_css %}
 <style>
 
-/* Корпус */
 .building-6 {
     left: 10%;
     top: 15%;
@@ -12,42 +11,47 @@
 }
 
 /* Лестницы */
-.staircase-1 { width: 11.3%; height: 5%; left: 10%; top: 15%; }
-.staircase-3 { width: 6%; height: 8%; left: 34%; top: 57%; }
-.staircase-5 { width: 6.45%; height: 5%; left: 27.55%; top: 15%; }
-.staircase-6 { width: 5%; height: 4%; left: 72%; top: 61%; }
+.staircase-1 { width: 11.2%; height: 5%; left: 10%; top: 15%;   data-staircase="staircase-6-3-1"; }
+.staircase-2 { width: 6.45%; height: 5%; left: 27.55%; top: 15%;data-staircase="staircase-6-3-3";}
+.staircase-3 { width: 6%; height: 8%; left: 34%; top: 57%;      data-staircase="staircase-6-3-2";
+               text-align: bottom;
+               justify-content:
+               flex-end;
+               padding-bottom: 4px; }
+.staircase-4 { width: 5%; height: 4%; left: 72%; top: 61%;      data-staircase="staircase-6-3-4"; }
 
 /* Комнаты */
-.room-lift { width: 3%; height: 5%; left: 35.5%; top: 57%; }
+.room-6-301 { width: 8%; height: 8%; left: 14%; top: 20%;       data-room="6-301"; }
+.room-6-302 { width: 8%; height: 16%; left: 26%; top: 20%;      data-room="6-302"; }
+.room-6-303 { width: 8%; height: 8%; left: 14%; top: 28%;       data-room="6-303"; }
+.room-6-303a { width: 8%; height: 8%; left: 14%; top: 36%;      data-room="6-303a"; }
+.room-6-304 { width: 8%; height: 11.5%; left: 26%; top: 36%;    data-room="6-304"; }
+.room-6-305 { width: 8%; height: 21%; left: 14%; top: 44%;      data-room="6-305"; }
+.room-6-306 { width: 8%; height: 4.5%; left: 26%; top: 47%;     data-room="6-306"; }
+.room-6-307 { width: 8%; height: 8%; left: 26%; top: 57%;       data-room="6-307"; }
+.room-6-309 { width: 4%; height: 8%; left: 40%; top: 57%;       data-room="6-309"; }
+.room-6-310 { width: 4%; height: 9%; left: 44%; top: 42.5%;     data-room="6-310"; }
+.room-6-311 { width: 9%; height: 8%; left: 44%; top: 57%;       data-room="6-311"; }
+.room-6-312 { width: 7%; height: 9%; left: 48%; top: 42.5%;     data-room="6-312"; }
+.room-6-313 { width: 9%; height: 8%; left: 53%; top: 57%;       data-room="6-313"; }
+.room-6-314 { width: 7%; height: 9%; left: 55%; top: 42.5%;     data-room="6-314"; }
+.room-6-315 { width: 10%; height: 8%; left: 62%; top: 57%;      data-room="6-315"; }
+.room-6-316 { width: 5%; height: 9%; left: 62%; top: 42.5%;     data-room="6-316"; }
+.room-6-317 { width: 13%; height: 8%; left: 77%; top: 57%;      data-room="6-317"; }
+.room-6-318 { width: 5%; height: 9%; left: 67%; top: 42.5%;     data-room="6-318"; }
+.room-6-318a { width: 5%; height: 9%; left: 72%; top: 42.5%;    data-room="6-318a"; }
+.room-6-320 { width: 4%; height: 9%; left: 77%; top: 42.5%;     data-room="6-320"; }
+.room-6-322 { width: 9%; height: 9%; left: 81%; top: 42.5%;     data-room="6-322"; }
 
-.room-6-301 { width: 8%; height: 8%; left: 14%; top: 20%; }
-.room-6-303 { width: 8%; height: 8%; left: 14%; top: 28%; }
-.room-6-303a { width: 8%; height: 8%; left: 14%; top: 36%; }
-.room-6-305 { width: 8%; height: 21%; left: 14%; top: 44%; }
+/* Туалет */
+.toilet-1 { width: 4%; height: 9%; left: 40%; top: 42.5%;       data-toilet="6-3"}
 
-.room-6-302 { width: 8%; height: 16%; left: 26%; top: 20%; }
-.room-6-304 { width: 8%; height: 11.5%; left: 26%; top: 36%; }
-.room-6-306 { width: 8%; height: 4%; left: 26%; top: 47.5%; }
-.room-6-307 { width: 8%; height: 8%; left: 26%; top: 57%; }
+/* Остальное */
+.room-lift { width: 3%; height: 5%; left: 35.5%; top: 57%;      data-room="lift-6-3"; }
 
-.room-9 { width: 4%; height: 9%; left: 40%; top: 42.5%; }
-
-.room-6-310 { width: 4%; height: 9%; left: 44%; top: 42.5%; }
-.room-6-312 { width: 7%; height: 9%; left: 48%; top: 42.5%; }
-.room-6-314 { width: 7%; height: 9%; left: 55%; top: 42.5%; }
-.room-6-316 { width: 5%; height: 9%; left: 62%; top: 42.5%; }
-.room-6-318 { width: 5%; height: 9%; left: 67%; top: 42.5%; }
-.room-6-318a { width: 5%; height: 9%; left: 72%; top: 42.5%; }
-.room-6-320 { width: 4%; height: 9%; left: 77%; top: 42.5%; }
-.room-6-322 { width: 9%; height: 9%; left: 81%; top: 42.5%; }
-
-.room-6-309 { width: 4%; height: 8%; left: 40%; top: 57%; }
-.room-6-311 { width: 9%; height: 8%; left: 44%; top: 57%; }
-.room-6-313 { width: 9%; height: 8%; left: 53%; top: 57%; }
-.room-6-315 { width: 10%; height: 8%; left: 62%; top: 57%; }
-.room-6-317 { width: 13%; height: 8%; left: 77%; top: 57%; }
 
 </style>
+
 {% endblock %}
 
 {% block content %}
@@ -57,37 +61,35 @@
     <div class="building building-6"></div>
 
     <div class="staircase staircase-1">Лестница</div>
+    <div class="staircase staircase-2">Лестница</div>
     <div class="staircase staircase-3">Лестница</div>
-    <div class="staircase staircase-5">Лестница</div>
-    <div class="staircase staircase-6">Лестница</div>
-
-    <div class="room room-lift">Лифт</div>
-    <div class="room room-9">Туалет</div>
+    <div class="staircase staircase-4">Лестница</div>
 
     <div class="room room-6-301">6-301</div>
+    <div class="room room-6-302">6-302</div>
     <div class="room room-6-303">6-303</div>
     <div class="room room-6-303a">6-303a</div>
-    <div class="room room-6-305">6-305</div>
-
-    <div class="room room-6-302">6-302</div>
     <div class="room room-6-304">6-304</div>
+    <div class="room room-6-305">6-305</div>
     <div class="room room-6-306">6-306</div>
     <div class="room room-6-307">6-307</div>
-
+    <div class="room room-6-309">6-309</div>
     <div class="room room-6-310">6-310</div>
     <div class="room room-6-312">6-312</div>
+    <div class="room room-6-311">6-311</div>
+    <div class="room room-6-313">6-313</div>
     <div class="room room-6-314">6-314</div>
+    <div class="room room-6-315">6-315</div>
     <div class="room room-6-316">6-316</div>
+    <div class="room room-6-317">6-317</div>
     <div class="room room-6-318">6-318</div>
     <div class="room room-6-318a">6-318a</div>
     <div class="room room-6-320">6-320</div>
     <div class="room room-6-322">6-322</div>
 
-    <div class="room room-6-309">6-309</div>
-    <div class="room room-6-311">6-311</div>
-    <div class="room room-6-313">6-313</div>
-    <div class="room room-6-315">6-315</div>
-    <div class="room room-6-317">6-317</div>
+    <div class="toilet toilet-1">Туалет</div>
+
+    <div class="room room-lift">Лифт</div>
 
 </div>
 
