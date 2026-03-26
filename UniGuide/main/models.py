@@ -45,7 +45,13 @@ class Building(models.Model):
         verbose_name="Скругление углов (border-radius)",
         help_text="Например: 10px или 10px 0 10px 0"
     )
-
+    #Слой
+    z_index = models.CharField(
+        max_length=20,
+        blank=True,  # Поле не обязательное
+        verbose_name="Слой (z-index)",
+        help_text="Например: 10 или 100"
+    )
     #Отступы для текста
     text_padding_top = models.CharField(
         max_length=20,

@@ -78,8 +78,8 @@
         }
 
         .building:hover {
-            transform: scale(1.05);
-            background: rgba(77, 25, 204, 0.4);
+            transform: scale(1.01);
+            background: rgba(77, 25, 204, 0.2);
             border: 3px solid #4d19cc;
             z-index: 10;
         }
@@ -135,6 +135,7 @@
             height: 100%;
             {% if building.clip_path %}clip-path: {{ building.clip_path }};{% endif %}
             {% if building.border_radius %}border-radius: {{ building.border_radius }};{% endif %}
+            {% if building.z_index %}z-index: {{ building.z_index }};{% endif %}
          "
     >
         <div class="building-text"
