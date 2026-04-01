@@ -9,7 +9,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}Навигация{% endblock %}</title>
-
+    <link rel="icon" type="image/svg+xml" href="{% static 'images/logosign.svg' %}">
     <style>
         * {
             margin: 0;
@@ -129,11 +129,10 @@
         }
 
         .subtitle {
-            color: #ddd;
-            font-size: 18px;
-            border-bottom: 2px solid var(--color-highlight);
+            color: #FFFFFF;
+            font-size: 20px;
             display: inline-block;
-            padding-bottom: 8px;
+            font-weight: 400;
         }
 
         .floorplan {
@@ -167,6 +166,87 @@
             color: #c1c1c1;
         }
 
+        .search-container {
+            width: 100%;
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 0 20px;
+        }
+
+        .search-box {
+            position: relative;
+            width: 100%;
+        }
+
+        #searchInput {
+            width: 100%;
+            padding: 15px 20px;
+            font-family: 'Golos Text', sans-serif;
+            font-size: 18px;
+            color: #e8e8e8;
+            background-color: #696969;
+            border-radius: 8px;
+            border: 2px solid #2a1468;
+            transition: all 0.3s ease;
+            outline: none;
+        }
+
+        #searchInput:focus {
+            background-color: #4f4f4f;
+            border-color: #6a35e0;
+        }
+
+        #searchInput:hover {
+            background-color: #4f4f4f;
+            border-color: #6a35e0;
+        }
+
+        #searchInput::placeholder {
+            color: #C1C1C1;
+            font-family: 'Golos Text', sans-serif;
+            font-size: 18px;
+        }
+
+        #searchInput:-webkit-autofill,
+        #searchInput:-webkit-autofill:hover,
+        #searchInput:-webkit-autofill:focus,
+        #searchInput:-webkit-autofill:active {
+            -webkit-text-fill-color: #ffffff !important;
+            background-color: #4f4f4f !important;
+            border: 2px solid #6a35e0 !important;
+            font-family: 'Golos Text', sans-serif !important;
+            font-size: 18px !important;
+            font-weight: 400 !important;
+            transition: background-color 5000s ease-in-out 0.3s;
+        }
+
+        #searchResults {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 100%;
+            background: #2c2c2c;
+            border-radius: 8px;
+            overflow: hidden;
+            z-index: 1000;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+            max-height: 240px;
+            overflow-y: auto;
+            margin-top: 4px;
+        }
+
+        #searchResults div {
+            padding: 12px 15px;
+            border-bottom: 1px solid #3d3d3d;
+            cursor: pointer;
+            color: #e0e0e0;
+            transition: background 0.2s ease;
+        }
+
+        #searchResults div:hover {
+            background: #3d3d3d;
+            color: #ffffff;
+        }
     </style>
 
     {% block extra_css %}{% endblock %}
