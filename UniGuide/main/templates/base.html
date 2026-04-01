@@ -59,6 +59,13 @@
             background: rgba(83, 0, 214, 0.3);
             z-index: 100;
         }
+
+        .room.highlight {
+            background: rgba(77, 25, 204, 0.5);
+            border: 2px solid #4d19cc;
+            box-shadow: 0 0 20px rgba(77,25,204,0.8);
+        }
+
         .toilet {
             position: absolute;
             border: 2px solid #c1c1c1;
@@ -174,6 +181,25 @@
     </div>
 
     {% block content %}{% endblock %}
+
+
+<script>
+(function () {
+    const params = new URLSearchParams(window.location.search);
+    const room = params.get('room');
+
+    if (!room) return;
+
+    const el = document.querySelector(`[data-name="${room}"]`);
+
+    if (el) {
+        el.classList.add('highlight');
+
+        // опционально — прокрутка к комнате
+        el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+})();
+</script>
 
 </body>
 </html>

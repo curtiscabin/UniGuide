@@ -1,97 +1,96 @@
 {% block extra_css %}
 <style>
 
-/*Корпус*/
+/* Корпус */
 .building-6 {
-        left: 10%;
-        top: 15%;
-        width: 80%;
-        height: 50%;
-        padding-top: 16px;
-        background: var( --color-building);
-        border-radius: 0px 0px 0px 0px;
-        clip-path: polygon(0 0, 14% 0, 14% 10%, 22% 10%, 22% 0, 30% 0, 30% 60%, 37.5% 60%, 37.5% 55%, 75% 55%, 75% 15%, 96.5% 15%, 96.5% 55%, 100% 55%, 100% 100%, 5% 100%, 5% 10%, 0 10%);
+    left: 10%;
+    top: 15%;
+    width: 80%;
+    height: 50%;
+    padding-top: 16px;
+    background: var(--color-building);
+    clip-path: polygon(0 0, 14% 0, 14% 10%, 22% 10%, 22% 0, 30% 0, 30% 60%, 37.5% 60%, 37.5% 55%, 75% 55%, 75% 15%, 96.5% 15%, 96.5% 55%, 100% 55%, 100% 100%, 5% 100%, 5% 10%, 0 10%);
 }
+
 /* Лестницы */
-.staircase-1 { width: 11.2%; height: 5%; left: 10%; top: 15%;   data-staircase="6-1-1"; }
-.staircase-2 { width: 6.5%; height: 5%; left: 27.55%; top: 15%; data-staircase="6-1-2"; }
-.staircase-3 { width: 6%; height: 10%; left: 34%; top: 55%;     data-staircase="6-1-3";
-               text-align: bottom;
-               justify-content:
-               flex-end;
-               padding-bottom: 12px; }
-.staircase-4 { width: 6%; height: 4%; left: 72%; top: 61%;      data-staircase="6-1-4"; }
+.staircase-1 { width: 11.2%; height: 5%; left: 10%; top: 15%; }
+.staircase-2 { width: 6.5%; height: 5%; left: 27.55%; top: 15%; }
+.staircase-3 { width: 6%; height: 10%; left: 34%; top: 55%; }
+.staircase-4 { width: 6%; height: 4%; left: 72%; top: 61%; }
 
 /* Комнаты */
-.room-6-101 { width: 7%; height: 10%; left: 14%; top: 55%;      data-room="6-101"; }
-.room-6-104 { width: 9%; height: 9%; left: 45%; top: 42.5%;     data-room="6-104"; }
-.room-6-106 { width: 9%; height: 9%; left: 54%; top: 42.5%;     data-room="6-106"; }
-.room-6-107 { width: 5%; height: 10%; left: 40%; top: 55%;      data-room="6-107"; }
-.room-6-108 { width: 4.5%; height: 9%; left: 63%; top: 42.5%;   data-room="6-108"; }
-.room-6-109 { width: 9%; height: 10%; left: 45%; top: 55%;      data-room="6-109"; }
-.room-6-111 { width: 4.5%; height: 10%; left: 54%; top: 55%;    data-room="6-111"; }
-.room-6-111a{ width: 4.5%; height: 10%; left: 58.5%; top: 55%;  data-room="6-111a"; }
-.room-6-113 { width: 9%; height: 10%; left: 63%; top: 55%;      data-room="6-113"; }
-.room-6-115 { width: 6%; height: 10%; left: 78%; top: 55%;      data-room="6-115"; }
-.room-6-115a{ width: 6%; height: 10%; left: 84%; top: 55%;      data-room="6-115a"; }
-.room-6-122a{ width: 6%; height: 9%; left: 72%; top: 42.5%;     data-room="6-122a"; }
+.room-6-101 { width: 7%; height: 10%; left: 14%; top: 55%; }
+.room-6-104 { width: 9%; height: 9%; left: 45%; top: 42.5%; }
+.room-6-106 { width: 9%; height: 9%; left: 54%; top: 42.5%; }
+.room-6-107 { width: 5%; height: 10%; left: 40%; top: 55%; }
+.room-6-108 { width: 4.5%; height: 9%; left: 63%; top: 42.5%; }
+.room-6-109 { width: 9%; height: 10%; left: 45%; top: 55%; }
+.room-6-111 { width: 4.5%; height: 10%; left: 54%; top: 55%; }
+.room-6-111a{ width: 4.5%; height: 10%; left: 58.5%; top: 55%; }
+.room-6-113 { width: 9%; height: 10%; left: 63%; top: 55%; }
+.room-6-115 { width: 6%; height: 10%; left: 78%; top: 55%; }
+.room-6-115a{ width: 6%; height: 10%; left: 84%; top: 55%; }
+.room-6-122a{ width: 6%; height: 9%; left: 72%; top: 42.5%; }
 
 /* Туалет */
-.toilet-1 { width: 5%; height: 9%; left: 40%; top: 42.5%;       data-toilet="1-1"; }
+.toilet-1 { width: 5%; height: 9%; left: 40%; top: 42.5%; }
 
 /* Остальное */
-.room-lift { width: 3%; height: 5%; left: 35.5%; top: 55%;      data-room="lift-6-1"; }
-.room-2 { width: 5%; height: 4%; left: 14%; top: 20%;           data-room="security"; }
-.room-3 { width: 5%; height: 23%; left: 14%; top: 32%;          data-room="wardrobe";
-          writing-mode: vertical-rl; }
-.room-4 { width: 8%; height: 10%; left: 21%; top: 55%;          data-room="lab-6-1";}
-.room-7 { width: 5%; height: 5%; left: 29%; top: 55%;           data-room="storage"; }
-.room-8 { width: 5%; height: 5%; left: 29%; top: 60%;           data-room="cabinet-6-1"; }
-.room-9{ width: 17.2%; height: 20%; left: 70%; top: 22.5%;      data-room="tech-6-1-1"; }
-.room-10{ width: 12%; height: 9%; left: 78%; top: 42.5%;        data-room="tech-6-1-2"; }
-.room-11{ width: 4.5%; height: 9%; left: 67.5%; top: 42.5%;     data-room="elec-6-1"; }
-.room-12{ width: 5%; height: 8%; left: 14%; top: 24%;           data-room="situation"; }
-</style>
+.room-lift { width: 3%; height: 5%; left: 35.5%; top: 55%; }
+.room-2 { width: 5%; height: 4%; left: 14%; top: 20%; }
+.room-3 { width: 5%; height: 23%; left: 14%; top: 32%; writing-mode: vertical-rl; }
+.room-4 { width: 8%; height: 10%; left: 21%; top: 55%; }
+.room-7 { width: 5%; height: 5%; left: 29%; top: 55%; }
+.room-8 { width: 5%; height: 5%; left: 29%; top: 60%; }
+.room-9 { width: 17.2%; height: 20%; left: 70%; top: 22.5%; }
+.room-10{ width: 12%; height: 9%; left: 78%; top: 42.5%; }
+.room-11{ width: 4.5%; height: 9%; left: 67.5%; top: 42.5%; }
+.room-12{ width: 5%; height: 8%; left: 14%; top: 24%; }
 
+</style>
 {% endblock %}
 
 {% block content %}
 
 <div class="floorplan">
 
-        <div class="building building-6"> </div>
+    <div class="building building-6"></div>
 
-        <div class="staircase staircase-1">Лестница</div>
-        <div class="staircase staircase-2">Лестница</div>
-        <div class="staircase staircase-3">Лестница</div>
-        <div class="staircase staircase-4">Лестница</div>
+    <!-- ЛЕСТНИЦЫ -->
+    <div class="staircase staircase-1" data-name="Лестница" data-type="staircase">Лестница</div>
+    <div class="staircase staircase-2" data-name="Лестница" data-type="staircase">Лестница</div>
+    <div class="staircase staircase-3" data-name="Лестница" data-type="staircase">Лестница</div>
+    <div class="staircase staircase-4" data-name="Лестница" data-type="staircase">Лестница</div>
 
+    <!-- АУДИТОРИИ -->
+    <div class="room room-6-101" data-name="6-101" data-type="room">6-101</div>
+    <div class="room room-6-104" data-name="6-104" data-type="room">6-104</div>
+    <div class="room room-6-106" data-name="6-106" data-type="room">6-106</div>
+    <div class="room room-6-107" data-name="6-107" data-type="room">6-107</div>
+    <div class="room room-6-108" data-name="6-108" data-type="room">6-108 Лаб</div>
+    <div class="room room-6-109" data-name="6-109" data-type="room">6-109</div>
+    <div class="room room-6-111" data-name="6-111" data-type="room">6-111 Лаб</div>
+    <div class="room room-6-111a" data-name="6-111a" data-type="room">6-111а СП</div>
+    <div class="room room-6-113" data-name="6-113" data-type="room">6-113 Лаб</div>
+    <div class="room room-6-115" data-name="6-115" data-type="room">6-115</div>
+    <div class="room room-6-115a" data-name="6-115a" data-type="room">6-115а</div>
+    <div class="room room-6-122a" data-name="6-122a" data-type="room">6-122а</div>
 
-        <div class="room room-6-101">6-101</div>
-        <div class="room room-6-104">6-104</div>
-        <div class="room room-6-106">6-106</div>
-        <div class="room room-6-107">6-107</div>
-        <div class="room room-6-108">6-108 Лаб</div>
-        <div class="room room-6-109">6-109</div>
-        <div class="room room-6-111">6-111 Лаб</div>
-        <div class="room room-6-111a">6-111а СП</div>
-        <div class="room room-6-113">6-113 Лаб</div>
-        <div class="room room-6-115">6-115</div>
-        <div class="room room-6-115a">6-115а</div>
-        <div class="room room-6-122a">6-122а Тех.пом.</div>
+    <!-- ТУАЛЕТ -->
+    <div class="room toilet toilet-1" data-name="Туалет" data-type="toilet">Туалет</div>
 
-        <div class="toilet toilet-1">Туалет</div>
+    <!-- ПРОЧЕЕ -->
+    <div class="room room-lift" data-name="Лифт" data-type="lift">Лифт</div>
+    <div class="room room-2" data-name="Охрана" data-type="other">Охрана</div>
+    <div class="room room-3" data-name="Гардероб" data-type="other">Гардероб</div>
+    <div class="room room-4" data-name="Лаборатория" data-type="room">Лаб</div>
+    <div class="room room-7" data-name="Склад" data-type="other">Склад</div>
+    <div class="room room-8" data-name="Кабинет" data-type="room">Кабинет</div>
+    <div class="room room-9" data-name="Техпомещения" data-type="other">МНОГО ТЕХПОМЕЩЕНИЙ</div>
+    <div class="room room-10" data-name="Техпомещения" data-type="other">ЕЩЁ ТЕХПОМЕЩЕНИЯ</div>
+    <div class="room room-11" data-name="Электрощитовая" data-type="other">ЭЩ</div>
+    <div class="room room-12" data-name="Ситуационный центр" data-type="other">Ситуац. центр</div>
 
-        <div class="room room-lift">Лифт</div>
-        <div class="room room-2">Охрана</div>
-        <div class="room room-3">Гардероб</div>
-        <div class="room room-4">Лаб</div>
-        <div class="room room-7"> Склад</div>
-        <div class="room room-8">Кабинет</div>
-        <div class="room room-9">МНОГО ТЕХПОМЕЩЕНИЙ</div>
-        <div class="room room-10">ЕЩЁ ТЕХПОМЕЩЕНИЯ</div>
-        <div class="room room-11">ЭЩ</div>
-        <div class="room room-12">Ситуац. центр</div>
 </div>
 
 {% endblock %}

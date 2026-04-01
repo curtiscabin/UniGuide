@@ -77,4 +77,20 @@ class Building(models.Model):
     def __str__(self):
         return f"Корпус {self.number}"
 
+class Room(models.Model):
+    name = models.CharField(max_length=30)
+    building = models.ForeignKey(Building, on_delete=models.CASCADE)
+    floor = models.IntegerField()
+
+    TYPE_CHOICES = [
+        ('room', 'Аудитория'),
+        ('toilet', 'Туалет'),
+        ('lift', 'Лифт'),
+        ('staircase', 'Лестница'),
+        ('other', 'Другое'),
+    ]
+    type = models.CharField(max_length=20, choices=TYPE_CHOICES)
+
+    def __str__(self):
+        return f"{self.name} (Корпус {self.building.number}, этаж {self.floor})"
 

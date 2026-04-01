@@ -1,5 +1,6 @@
 from django.shortcuts import render, get_object_or_404
-from main.models import Building
+from main.models import Building, Room
+from django.http import JsonResponse
 
 FLOOR_TEMPLATES = {
     1: {1: "buildings/floors/building_1_floor_1.html",
@@ -62,3 +63,20 @@ def building_detail(request, number):
 
     return render(request, 'building.html', context)
 
+def search(request):
+    query = request.GET.get('q', '').strip()
+
+    results = []
+
+    if query:
+        rooms = Room.objects.filter(name__icontains=query)[:10]
+
+        for room in rooms:
+            results.append({
+                'name': room.name,
+                'building': room.building.number,
+                'floor': room.floor,
+                'type': room.type
+            })
+
+    return JsonResponse({'results': results})
