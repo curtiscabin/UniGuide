@@ -117,7 +117,7 @@
         .evacuation-header h1 {
             color: var(--color-text);
             font-size: 32px;
-            font-weight: 700;
+            font-weight: 400;
             margin-bottom: 6px;
         }
 
@@ -147,6 +147,12 @@
             transform-origin: top left;
         }
 
+        .header-logo {
+            height: 50px;
+            width: auto;
+            vertical-align: middle;
+        }
+
         .building {
             position: absolute;
             border: 0px solid #fff;
@@ -162,7 +168,8 @@
 <body>
 
     <div class="evacuation-header">
-        <h1>ФГБОУ ВО «УУНиТ» — Учебный корпус № {{ building }}</h1>
+
+        <h1> <img src="{% static 'images/logosign-white.svg' %}" class="header-logo"> Карта УУНиТ — Учебный {{ building }} </h1>
         <div class="subtitle">{{ current_floor }} этаж</div>
     </div>
 
