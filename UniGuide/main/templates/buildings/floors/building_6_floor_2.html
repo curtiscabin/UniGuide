@@ -17,7 +17,11 @@
 .staircase-1 { width: 6%; height: 7.5%; left: 10%; top: 19.5%;      data-staircase="6-2-1"; }
 .staircase-2 { width: 6%; height: 7.5%; left: 20%; top: 19.5%;      data-staircase="6-2-2"; }
 .staircase-3 { width: 6%; height: 7%; left: 71.25%; top: 58%;      data-staircase="6-2-3"; }
-.staircase-4 { width: 4.75%; height: 7%; left: 26%; top: 58%;      data-staircase="6-2-4"; }
+.staircase-4 { width: 4.75%; height: 7%; left: 26%; top: 58%;      data-staircase="6-2-4";
+               text-align: bottom;
+               justify-content:
+               flex-end;
+               padding-bottom: 2px; }
 
 
 
@@ -51,9 +55,12 @@
 .room-24 { width: 3%; height: 9%; left: 77%; top: 44%;           data-room="service-1"; }
 .room-25 { width: 6%; height: 9%; left: 80%; top: 44%;           data-room="service-2"; }
 .room-26 { width: 4%; height: 9%; left: 86%; top: 44%;           data-room="service-3"; }
-.room-27 { width: 2%; height: 3%; left: 88%; top: 50%;           data-room="garbage"; }
+
+.room-27 { width: 2%; height: 4%; left: 27.5%; top: 58%;           data-room="lift"; }
+
 .room-28 { width: 12%; height: 17%; left: 74.75%; top: 27%;           data-room="cino"; }
 .room-29 { width: 12%; height: 12%; left: 74.75%; top: 15%;           data-room="dopolnenie"; }
+
     </style>
 
 {% endblock %}
@@ -82,8 +89,8 @@
     <div class="room room-8" data-name="Буфет" data-type="other">Буфет</div>
     <div class="room room-9" data-name="Туалет" data-type="toilet">С/У</div>
 
-    <div class="room room-10" data-name="Коучинг" data-type="room">Коуч</div>
-    <div class="room room-11" data-name="Коучинг" data-type="room">Коуч</div>
+    <div class="room room-10" data-name="Преподавательская" data-type="room">Преп</div>
+    <div class="room room-11" data-name="Преподавательская" data-type="room">Преп</div>
 
     <div class="room room-12" data-name="Кабинет" data-type="room">Каб</div>
     <div class="room room-13" data-name="Лаборатория" data-type="room">Лаб</div>
@@ -95,7 +102,7 @@
     <div class="room room-16" data-name="Кабинет" data-type="room">Каб</div>
     <div class="room room-17" data-name="Лаборатория" data-type="room">Лаб</div>
 
-    <div class="room room-18" data-name="Коучинг" data-type="room">Коуч</div>
+    <div class="room room-18" data-name="Преподавательская" data-type="room">Преп</div>
 
     <div class="room room-19" data-name="Кабинет" data-type="room">Каб</div>
     <div class="room room-20" data-name="Лаборатория" data-type="room">Лаб</div>
@@ -108,9 +115,7 @@
     <div class="room room-24" data-name="Служебное" data-type="other">Служ</div>
     <div class="room room-25" data-name="Служебное" data-type="other">Служ</div>
     <div class="room room-26" data-name="Служебное" data-type="other">Служ</div>
-
-    <div class="room room-27" data-name="Мусорка" data-type="other">Мусор</div>
-
+    <div class="room room-27" data-name="Лифт" data-type="lift">Лифт</div>
     <div class="room room-28" data-name="Кинозал" data-type="room">Кинозал</div>
     <div class="room room-29" data-name="Помещение" data-type="other">Помещение</div>
 
