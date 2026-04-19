@@ -207,3 +207,56 @@ if (document.readyState === 'loading') {
 } else {
     init();
 }
+
+// ... (тут твой старый код поиска) ...
+
+
+// ЗАМЕНА РЕЖИМА С ПОИСКА НА МАРШРУТ ДО АУДИТОРИИ
+// ЗАМЕНА РЕЖИМА С ПОИСКА НА МАРШРУТ ДО АУДИТОРИИ
+// === ЛОГИКА ПЕРЕКЛЮЧЕНИЯ РЕЖИМОВ ===
+document.addEventListener('DOMContentLoaded', function() {
+    const routeBtn = document.getElementById('routeButton');
+    const searchBtn = document.getElementById('searchButton');
+    const clearBtn = document.getElementById('clearButton');
+    const mainInput = document.getElementById('searchInput');
+    const secondInput = document.getElementById('secondInput');
+
+    if (routeBtn && searchBtn && mainInput) {
+        let isRouteMode = false;
+
+        // Режим МАРШРУТА (нажимаем на "Плюс")
+        routeBtn.addEventListener('click', function() {
+            if (!isRouteMode) {
+                isRouteMode = true;
+
+                // Активируем интерфейс
+                secondInput.style.display = 'block';
+                mainInput.placeholder = "Откуда";
+
+                // Идеальная смена мест:
+                // Лупа едет на край (12px), Маршрут уходит влево (92px)
+                searchBtn.style.right = '12px';
+                routeBtn.style.right = '92px';
+                if(clearBtn) clearBtn.style.right = '52px';
+            }
+        });
+
+        // Режим ПОИСКА (нажимаем на "Лупу", когда она справа)
+        searchBtn.addEventListener('click', function(e) {
+            if (isRouteMode) {
+                e.preventDefault(); // Отменяем поиск, просто закрываем режим
+                isRouteMode = false;
+
+                // Возвращаем интерфейс
+                secondInput.style.display = 'none';
+                mainInput.placeholder = "Поиск аудитории...";
+
+                // Возвращаем кнопки в исходное положение:
+                // Маршрут на край (12px), Лупа в центр (52px)
+                routeBtn.style.right = '12px';
+                searchBtn.style.right = '52px';
+                if(clearBtn) clearBtn.style.right = '92px';
+            }
+        });
+    }
+});

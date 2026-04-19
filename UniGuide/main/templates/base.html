@@ -225,19 +225,7 @@
             transition: background-color 5000s ease-in-out 0.3s;
         }
 
-        #searchButton {
-            position: absolute;
-            right: 12px;
-            background: transparent;
-            border: none;
-            cursor: pointer;
-            padding: 8px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 6px;
-            transition: all 0.3s ease;
-        }
+
 
         #searchButton:hover {
             background: rgba(255, 255, 255, 0.1);
@@ -246,6 +234,50 @@
 
         #searchButton:active {
             transform: scale(0.95);
+        }
+
+        /* Кнопка маршрута */
+
+
+        /* 1. Общие стили для всех трех кнопок управления */
+        #searchButton, #routeButton, #clearButton {
+            position: absolute;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            padding: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 6px;
+            /* Одинаковая плавность для всех */
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        /* 2. Точные начальные координаты (с шагом 40px) */
+        #routeButton  { right: 12px; z-index: 102; } /* Крайняя справа */
+        #searchButton { right: 52px; z-index: 101; } /* Посередине */
+        #clearButton  { right: 92px; z-index: 100; opacity: 0.7; } /* Слева */
+        #routeButton:hover
+        {
+            background: rgba(255, 255, 255, 0.1);
+            transform: scale(1.05);
+        }
+
+        /* ВТОРАЯ СТРОКА (СКРЫТА ПО УМОЛЧАНИЮ) */
+        #secondInput {
+            width: 100%;
+            padding: 15px 20px;
+            margin-top: 10px;
+            font-family: 'Golos Text', sans-serif;
+            font-size: 18px;
+            color: #e8e8e8;
+            background-color: #696969;
+            border-radius: 8px;
+            border: 2px solid #2a1468;
+            outline: none;
+            display: none;
+            transition: all 0.3s ease;
         }
 
         #searchResults {
@@ -275,20 +307,6 @@
             background: #3d3d3d;
             color: #ffffff;
         }
-        #clearButton {
-            position: absolute;
-            right: 52px;
-            background: transparent;
-            border: none;
-            cursor: pointer;
-            padding: 8px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 6px;
-            transition: all 0.3s ease;
-            opacity: 0.7;
-        }
 
         #clearButton:hover {
             background: rgba(255, 255, 255, 0.1);
@@ -315,6 +333,13 @@
         <div class="search-box">
             <div class="search-input-wrapper">
                 <input id="searchInput" type="text" placeholder="Поиск аудитории..." autocomplete="off">
+
+
+                <button id="routeButton" type="button">
+                    <img src="{% static 'images/logo-beta.svg' %}" width="20" height="20" alt="Route">
+                </button>
+
+
                 <button id="clearButton" style="
                     position: absolute;
                     right: 52px;
@@ -339,6 +364,9 @@
                     </svg>
                 </button>
             </div>
+
+            <input id="secondInput" type="text" placeholder="Куда" autocomplete="off">
+
             <div id="searchResults"></div>
         </div>
     </div>
