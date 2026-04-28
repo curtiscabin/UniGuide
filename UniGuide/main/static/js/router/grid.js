@@ -4,11 +4,15 @@ export function createGrid(GRID_SIZE) {
     );
 }
 
-export function fillGrid(grid, elements, floorRect, GRID_SIZE) {
-    const PADDING = 2;
+export function fillGrid(grid, elements, floorRect, GRID_SIZE, from, to) {
+    const PADDING = 0;
 
     elements.forEach(el => {
-        if (el.type === "room" || el.type === "other") {
+        if (
+            (el.type === "room" || el.type === "other") &&
+            el.name !== from &&
+            el.name !== to
+        ) {
 
             const x1 = Math.floor(el.x1 / floorRect.width * GRID_SIZE);
             const y1 = Math.floor(el.y1 / floorRect.height * GRID_SIZE);

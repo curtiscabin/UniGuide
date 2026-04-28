@@ -29,7 +29,7 @@ export function getCenters(elements, floorRect, GRID_SIZE) {
         const cy = (el.y1 + el.y2) / 2;
 
         res[el.name] = {
-            x: Math.floor(cx / floorRect.width * GRID_SIZE),
+            x: Math.floor(cx / floorRect.width * GRID_SIZE) + 3,
             y: Math.floor(cy / floorRect.height * GRID_SIZE)
         };
     });

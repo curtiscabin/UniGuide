@@ -4,13 +4,14 @@ import { createGrid, fillGrid } from "./grid.js";
 import { astar } from "./astar.js";
 import { drawPath } from "./render.js";
 
-console.log("MAIN JS LOADED");
+
 
 export function runRouting(from, to) {
+    console.log("RUN ROUTING", from, to);
     const { result, floorRect } = getElements();
 
     const grid = createGrid(GRID_SIZE);
-    fillGrid(grid, result, floorRect, GRID_SIZE);
+    fillGrid(grid, result, floorRect, GRID_SIZE, from, to);
 
     const centers = getCenters(result, floorRect, GRID_SIZE);
 
